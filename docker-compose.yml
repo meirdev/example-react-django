@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres:16.2
+    restart: always
+    env_file:
+      - backend/.env
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD?Variable not set}
+      POSTGRES_USER: ${DB_USER?Variable not set}
+      POSTGRES_DB: ${DB_NAME?Variable not set}
+    ports:
+      - 5432:5432

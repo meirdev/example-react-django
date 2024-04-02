@@ -1,0 +1,21 @@
+{
+    "editor.formatOnSave": true,
+    "files.associations": {
+        "*.css": "tailwindcss"
+    },
+    "[typescriptreact]": {
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[python]": {
+        "editor.tabSize": 4,
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "python.defaultInterpreterPath": "./backend/.venv/bin/python"
+}
