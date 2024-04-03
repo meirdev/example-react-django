@@ -2,31 +2,31 @@ export type ErrorResponse = {
   detail: string;
 };
 
-export type TokenRequest = {
+export type PostTokenRequest = {
   email: string;
   password: string;
 };
 
-export type TokenResponse = {
+export type PostTokenResponse = {
   access: string;
   refresh: string;
 };
 
-export type TokenRefreshRequest = {
+export type PostTokenRefreshRequest = {
   refresh: string;
 };
 
-export type TokenRefreshResponse = {
+export type PostTokenRefreshResponse = {
   access: string;
 };
 
-export type TokenVerifyRequest = {
+export type PostTokenVerifyRequest = {
   token: string;
 };
 
-export type TokenVerifyResponse = Record<string, never>;
+export type PostTokenVerifyResponse = Record<string, never>;
 
-export type UserMeResponse = {
+export type GetUsersMeResponse = {
   email: string;
 };
 

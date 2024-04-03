@@ -1,10 +1,10 @@
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 
-import { getUsers } from "../../api/client";
-import { GetUsersResponse } from "../../api/types";
+import { getUsers } from "../../../api/client";
+import { GetUsersResponse } from "../../../api/types";
 
-export default function UsersIndex() {
+export default function List() {
   const [users, setUsers] = useState<GetUsersResponse>([]);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function UsersIndex() {
         </thead>
         <tbody>
           {users.map((user) => (
-            <tr>
+            <tr key={user.id}>
               <th>{user.id}</th>
               <td>{user.first_name}</td>
               <td>{user.last_name}</td>

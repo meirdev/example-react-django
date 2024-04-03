@@ -1,10 +1,26 @@
 import { HomeIcon, UsersIcon } from "@heroicons/react/24/outline";
-import { Link, Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 
-import { useIsLogged } from "../../hooks";
+import { postTokenVerify } from "../../api/client";
 
 export default function Root() {
-  useIsLogged();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    (async () => {
+      const token = localStorage.getItem("accessToken");
+
+      try {
+        await postTokenVerify({
+          token: token!,
+        });
+      } catch {
+        navigate("/login");
+      }
+    })();
+  }, [location, navigate]);
 
   return (
     <div className="flex flex-row min-h-screen">

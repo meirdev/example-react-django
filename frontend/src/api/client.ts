@@ -1,39 +1,39 @@
 import { AxiosResponse } from "axios";
 
 import {
+  GetUsersMeResponse,
   GetUsersResponse,
-  TokenRefreshRequest,
-  TokenRefreshResponse,
-  TokenRequest,
-  TokenResponse,
-  TokenVerifyRequest,
-  TokenVerifyResponse,
-  UserMeResponse,
+  PostTokenRefreshRequest,
+  PostTokenRefreshResponse,
+  PostTokenRequest,
+  PostTokenResponse,
+  PostTokenVerifyRequest,
+  PostTokenVerifyResponse,
 } from "./types";
 
 import api from ".";
 
-export async function postToken(request: TokenRequest) {
+export async function postToken(request: PostTokenRequest) {
   return await api.post<
-    TokenResponse,
-    AxiosResponse<TokenResponse>,
-    TokenRequest
+    PostTokenResponse,
+    AxiosResponse<PostTokenResponse>,
+    PostTokenRequest
   >("/token/", request);
 }
 
-export async function postTokenRefresh(request: TokenRefreshRequest) {
+export async function postTokenRefresh(request: PostTokenRefreshRequest) {
   return await api.post<
-    TokenRefreshResponse,
-    AxiosResponse<TokenRefreshResponse>,
-    TokenRefreshRequest
+    PostTokenRefreshResponse,
+    AxiosResponse<PostTokenRefreshResponse>,
+    PostTokenRefreshRequest
   >("/token/refresh/", request);
 }
 
-export async function postTokenVerify(request: TokenVerifyRequest) {
+export async function postTokenVerify(request: PostTokenVerifyRequest) {
   return await api.post<
-    TokenVerifyResponse,
-    AxiosResponse<TokenVerifyResponse>,
-    TokenVerifyRequest
+    PostTokenVerifyResponse,
+    AxiosResponse<PostTokenVerifyResponse>,
+    PostTokenVerifyRequest
   >("/token/verify/", request);
 }
 
@@ -42,5 +42,5 @@ export async function getUsers() {
 }
 
 export async function getUsersMe() {
-  return await api.get<UserMeResponse>("/users/me/");
+  return await api.get<GetUsersMeResponse>("/users/me/");
 }

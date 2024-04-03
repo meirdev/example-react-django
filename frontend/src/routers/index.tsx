@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Dashboard from "../pages/admin/Dashboard";
 import Login from "../pages/admin/Login";
 import Root from "../pages/admin/Root";
-import UsersIndex from "../pages/admin/UsersIndex";
+import Users from "../pages/admin/users";
 
 export default createBrowserRouter([
   {
@@ -16,7 +16,7 @@ export default createBrowserRouter([
       },
       {
         path: "users",
-        element: <UsersIndex />,
+        element: <Users.List />,
       },
     ],
   },
