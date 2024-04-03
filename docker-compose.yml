@@ -4,11 +4,9 @@ services:
   db:
     image: postgres:16.2
     restart: always
-    env_file:
-      - backend/.env
     environment:
-      POSTGRES_PASSWORD: ${DB_PASSWORD?Variable not set}
-      POSTGRES_USER: ${DB_USER?Variable not set}
-      POSTGRES_DB: ${DB_NAME?Variable not set}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD?Variable not set}
+      POSTGRES_USER: ${POSTGRES_USER?Variable not set}
+      POSTGRES_DB: ${POSTGRES_DB?Variable not set}
     ports:
-      - 5432:5432
+      - ${POSTGRES_PORT?Variable not set}:5432
